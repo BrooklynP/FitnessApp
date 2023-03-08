@@ -11,7 +11,7 @@ h1,h2,h3,h4,h5,h6{
   color: #fffffe;
 }
 
-p, ul{
+p, ul,label{
   color: #abd1c6;
 }
 
@@ -35,4 +35,17 @@ button.primary{
 button.primary:hover{
   cursor: pointer;
   background-color: #e16162;
+}
+
+select{
+  background-color: #abd1c6;
+}
+
+select:focus > option:checked { 
+  background-color: #f9bc60;
+}
+select option:hover{
+  background-color: #f9bc60;
+  box-shadow: 0 0 10px 100px #f9bc60 inset;
+
 }
