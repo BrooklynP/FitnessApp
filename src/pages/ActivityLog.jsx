@@ -4,13 +4,15 @@ import CreateActivityLogEntry from '../components/createActivityLogEntry';
 class ActivityLogPage extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {activityLog: ["test"]}
+        let storedActivityLog = JSON.parse(localStorage.getItem("activities")) || []
+        this.state = {activityLog: storedActivityLog}
     }
 
     addActivityLog = (activityDesc) => {
         let activities = this.state.activityLog;
         activities.push(activityDesc);
         this.setState({...this.state, activityLog: activities})
+        localStorage.setItem("activities", JSON.stringify(activities));
     }
 
     createActivityLog(){
@@ -25,7 +27,7 @@ class ActivityLogPage extends React.Component {
     render() {
         return (
             <div>
-                <p>Log activity</p>
+                <h2>Log activity</h2>
                 <div>
                     {this.createActivityLog()}
                 </div>
