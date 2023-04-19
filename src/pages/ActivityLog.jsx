@@ -1,39 +1,17 @@
 import React from 'react';
-import CreateActivityLogEntry from '../components/createActivityLogEntry';
 import PageTitle from '../coreComponents/pageTitle';
+import ActivityLog from '../components/activityLog';
 
-class ActivityLogPage extends React.Component {
-    constructor(props) {
-        super(props);
-        let storedActivityLog = JSON.parse(localStorage.getItem("activities")) || []
-        this.state = {activityLog: storedActivityLog}
-    }
-
-    addActivityLog = (activityDesc) => {
-        let activities = this.state.activityLog;
-        activities.push(activityDesc);
-        this.setState({...this.state, activityLog: activities})
-        localStorage.setItem("activities", JSON.stringify(activities));
-    }
-
-    createActivityLog(){
-        const activitiyLogList = this.state.activityLog.map((activityLogItem, index)=>
-            <li key={index}>{activityLogItem}</li>
-        )
-        return <ul>{activitiyLogList}</ul>
-    }
-
-    render() {
-        return (
-            <div>
-                <PageTitle pageTitle={"Activity Log"}/>
-                <div>
-                    {this.createActivityLog()}
-                </div>
-                <CreateActivityLogEntry logEntry={this.addActivityLog} />
-            </div>
-        );
-    }
+function ActivityLogPage(props){
+    const [activityLog] = React.useState(JSON.parse(localStorage.getItem("activities")) || []);
+    
+    return (
+        <div>
+            <PageTitle pageTitle={"Activity Log"} description={"Your recent progress"}/>
+            <ActivityLog activities={activityLog} />
+            <a href="/createEntry">Log a new activity</a>
+        </div>
+    );
 }
 
 export default ActivityLogPage;
