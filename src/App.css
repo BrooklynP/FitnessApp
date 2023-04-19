@@ -25,11 +25,13 @@ body{
   background-color: #004643;
 }
 
-button.primary{
+button.primary, a{
   border: none;
+  padding: 4px;
   border-radius: 4px;
   background-color: #f9bc60;
   color: #001e1d;
+  text-decoration: none;
 }
 
 button.primary:hover{
