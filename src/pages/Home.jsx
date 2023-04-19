@@ -5,8 +5,7 @@ class Home extends React.Component {
    render() {
     return (
         <div>
-            <PageTitle pageTitle={"Welcome"}/>
-            <p>Welcome to fitness app</p>
+            <PageTitle pageTitle={"Welcome"} description={"Welcome to fitness app"}/>
             <a href="/activity">Enter</a>
         </div>
     );
