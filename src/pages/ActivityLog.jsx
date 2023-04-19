@@ -1,5 +1,6 @@
 import React from 'react';
 import CreateActivityLogEntry from '../components/createActivityLogEntry';
+import PageTitle from '../coreComponents/pageTitle';
 
 class ActivityLogPage extends React.Component {
     constructor(props) {
@@ -16,18 +17,16 @@ class ActivityLogPage extends React.Component {
     }
 
     createActivityLog(){
-        let activitiyLogList = []
-        for (let i = 0; i < this.state.activityLog.length; i++)
-        {
-            activitiyLogList.push(<li>{this.state.activityLog[i]}</li>)
-        }
+        const activitiyLogList = this.state.activityLog.map((activityLogItem, index)=>
+            <li key={index}>{activityLogItem}</li>
+        )
         return <ul>{activitiyLogList}</ul>
     }
 
     render() {
         return (
             <div>
-                <h2>Log activity</h2>
+                <PageTitle pageTitle={"Activity Log"}/>
                 <div>
                     {this.createActivityLog()}
                 </div>

@@ -5,10 +5,12 @@ import { Routes, Route } from 'react-router-dom';
 import ActivityLog from './pages/ActivityLog';
 import Home from './pages/Home';
 
+const appTitle = "Fitness App";
+
 function App() {
   return (
     <div className="App">
-      <FitnessHeader />
+      <FitnessHeader appTitle={appTitle}/>
       <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/activity" element={<ActivityLog />} />

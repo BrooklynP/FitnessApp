@@ -1,9 +1,9 @@
 import React from 'react';
 
-function FitnessHeader() {
+function FitnessHeader({appTitle}) {
     return (
       <header>
-        <h1>Fitness App</h1>
+        <h1>{appTitle}</h1>
       </header>
     );
 }
