@@ -20,7 +20,6 @@ function ActivityLogPage(props){
             cursor.continue();
           } else {
             db.close();
-            console.log(workouts);
             setWorkouts(workouts);
           }
         }

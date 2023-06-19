@@ -20,7 +20,7 @@ function CreateActivityLogEntry(props) {
       newValidationErrors.push("You need to select a weight")
     }
     if (validationErrors.length === 0) {
-      props.logEntry(selectedExercise + " x " + selectedReps + " x " + selectedWeight + "kg")
+      props.logEntry({exercise: selectedExercise, reps: selectedReps, weight: selectedWeight, notes: selectedDesc})
     }
     setValidationErrors(newValidationErrors);
   }
