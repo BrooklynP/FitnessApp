@@ -2,7 +2,7 @@ import React from 'react';
 
 function ActivityLog({ activities }) {
     const activityLogList = activities.map((activityLogItem, index) =>
-        <li key={index}>{activityLogItem}</li>
+        <li key={index}>{activityLogItem.activityDesc}</li>
     )
 
     return <ul>{activityLogList}</ul>
