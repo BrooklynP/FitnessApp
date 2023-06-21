@@ -1,4 +1,5 @@
 import React from 'react';
+import DropDown from '../coreComponents/dropdown';
 
 function CreateActivityLogEntry(props) {
   const [selectedExercise, setSelectedExercise] = React.useState("");
@@ -6,6 +7,7 @@ function CreateActivityLogEntry(props) {
   const [selectedWeight, setSelectedWeight] = React.useState("");
   const [selectedDesc, setSelectedDesc] = React.useState("");
   const [validationErrors, setValidationErrors] = React.useState([]);
+  const [workouts, setWorkouts] = React.useState(["Shoulder Press", "Bench Press", "Push Ups", "Dips", "Shrugs", "Planks", "Crunches", "Hip Thrusts","Bridges"]);
 
   const logEntryButtonClicked = () => {
     const newValidationErrors = [];
@@ -34,14 +36,7 @@ function CreateActivityLogEntry(props) {
   return (
     <div>
       <label>Exercise</label><br></br>
-      <select name="" id="exerciseDropdown" onChange={(e) => { setSelectedExercise(e.target.value) }}>
-        <option value=""></option>
-        <option value="Shoulder Press">Shoulder Press</option>
-        <option value="Bench Press">Bench Press</option>
-        <option value="Push Ups">Push Ups</option>
-        <option value="Dips">Dips</option>
-        <option value="Shrugs">Shrugs</option>
-      </select><br></br>
+      <DropDown values={workouts} id="exerciseDropdown" name="" onChangeFunction={(e) => { setSelectedExercise(e.target.value) }}></DropDown><br></br>
       <label>Reps</label><br></br>
       <input id="logEntryRepsInput" type="number"  onChange={(e) => { setSelectedReps(e.target.value) }}></input><br></br>
       <label>Weight</label><br></br>

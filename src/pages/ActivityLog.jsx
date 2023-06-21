@@ -3,6 +3,8 @@ import PageTitle from '../coreComponents/pageTitle';
 import ActivityLog from '../components/activityLog';
 
 function ActivityLogPage(props){
+    const maxWorkouts = 10;
+
     const [workouts, setWorkouts] = React.useState([]);
 
     
@@ -11,11 +13,11 @@ function ActivityLogPage(props){
     
         const transaction = db.transaction(["workouts"], "readonly");
         const objectStore = transaction.objectStore("workouts");
-    
+        
         const workouts = [];
         objectStore.openCursor().onsuccess = async (event) => {
           const cursor = event.target.result;
-          if (cursor) {
+          if (cursor && workouts.length < maxWorkouts) {
             workouts.push(cursor.value);
             cursor.continue();
           } else {
