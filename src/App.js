@@ -5,6 +5,8 @@ import { Routes, Route } from 'react-router-dom';
 import ActivityLog from './pages/ActivityLog';
 import Home from './pages/Home';
 import EntryForm from './pages/EntryForm';
+import RoutineListPage from './pages/RoutineList';
+import ExerciseListPage from './pages/ExerciseList';
 
 const appTitle = "Fitness App";
 
@@ -23,6 +25,12 @@ function App() {
     if (!db.objectStoreNames.contains("workouts")) {
       db.createObjectStore("workouts", { keyPath: "id", autoIncrement: true });
     }
+    if (!db.objectStoreNames.contains("routines")) {
+      db.createObjectStore("routines", { keyPath: "id", autoIncrement: true });
+    }
+    if (!db.objectStoreNames.contains("exercises")) {
+      db.createObjectStore("exercises", { keyPath: "id", autoIncrement: true });
+    }
   };
 
   return (
@@ -32,6 +40,8 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/activity" element={<ActivityLog />} />
           <Route path="/createEntry" element={<EntryForm />} />
+          <Route path="/routines" element={<RoutineListPage />} />
+          <Route path="/exercises" element={<ExerciseListPage />} />
        </Routes>
     </div>
   );

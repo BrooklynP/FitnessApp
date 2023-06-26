@@ -9,7 +9,7 @@ class Home extends React.Component {
         <nav className='home-nav'>
           <a href="/activity">Log</a>
           <a href="/exercises">View Exercises</a>
-          <a href="/exercises">View Workouts</a>
+          <a href="/routines">View Routines</a>
         </nav>
       </div>
     );

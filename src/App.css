@@ -33,6 +33,14 @@ button.primary, a{
   color: #001e1d;
   text-decoration: none;
 }
+h1 a{
+  border: none;
+  padding: 4px;
+  border-radius: 4px;
+  background-color: transparent;
+  color: white;
+  text-decoration: none;
+}
 
 button.primary:hover{
   cursor: pointer;

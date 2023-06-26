@@ -3,7 +3,7 @@ import React from 'react';
 function FitnessHeader({appTitle}) {
     return (
       <header>
-        <h1>{appTitle}</h1>
+        <h1><a href='/'>{appTitle}</a></h1>
       </header>
     );
 }
