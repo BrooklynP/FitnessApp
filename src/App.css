@@ -51,3 +51,15 @@ select option:hover{
   box-shadow: 0 0 10px 100px #f9bc60 inset;
 
 }
+
+.home-nav{
+  display: flex;
+  flex-direction: column;
+
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.home-nav a{
+  margin-bottom: 8px;
+}
